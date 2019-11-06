@@ -1,15 +1,14 @@
-FROM node:8.16.2-jessie-slim
+FROM nikolaik/python-nodejs:python3.8-nodejs12
+
+WORKDIR /usr/src
 
 ENV LANG C.UTF-8
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN set -eux; \
   apt-get update -y && \
-  apt-get install -y --no-install-recommends \
-    python python-pip \
-    ; \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 ENV DEBIAN_FRONTEND dialog
 
